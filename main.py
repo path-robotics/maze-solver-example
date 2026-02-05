@@ -45,6 +45,18 @@ def main():
 ###########"""
     solver4 = MazeSolver(maze4)
     print(solver4.solve())
+    
+    # Test User Story 5 - dead ends
+    print("\n=== User Story 5 ===")
+    maze5 = """#########
+#S#     #
+# # ### #
+# #   # #
+# ### # #
+#     #E#
+#########"""
+    solver5 = MazeSolver(maze5)
+    print(solver5.solve())
 
 
 if __name__ == "__main__":
