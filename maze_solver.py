@@ -23,43 +23,43 @@ class MazeSolver:
                 elif char == 'E':
                     self.end = (row_idx, col_idx)
     
-    def walk_hallway(self):
-        """User Story 2: Walk through a straight hallway maze"""
+    def explore_maze(self):
+        """User Story 3: Explore maze with rooms using simple search"""
         if not self.start or not self.end:
             self.find_start_and_end()
         
         if not self.start or not self.end:
             return None
         
-        current = self.start
-        self.path = [current]
+        # Use a simple queue for breadth-first exploration
+        queue = [(self.start, [self.start])]
+        visited = set([self.start])
         
-        # Simple approach: try moving right, down, left, up
         directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
         
-        while current != self.end:
+        while queue:
+            current, path = queue.pop(0)
+            
+            if current == self.end:
+                self.path = path
+                return path
+            
             row, col = current
-            moved = False
             
             for dr, dc in directions:
                 new_row, new_col = row + dr, col + dc
+                new_pos = (new_row, new_col)
                 
                 # Check bounds
                 if 0 <= new_row < len(self.maze) and 0 <= new_col < len(self.maze[new_row]):
                     cell = self.maze[new_row][new_col]
-                    new_pos = (new_row, new_col)
                     
-                    # Move if it's empty space or the end, and we haven't been there
-                    if (cell == ' ' or cell == 'E') and new_pos not in self.path:
-                        current = new_pos
-                        self.path.append(current)
-                        moved = True
-                        break
-            
-            if not moved:
-                break
+                    # Can move to empty space or end, if not visited
+                    if (cell == ' ' or cell == 'E') and new_pos not in visited:
+                        visited.add(new_pos)
+                        queue.append((new_pos, path + [new_pos]))
         
-        return self.path if current == self.end else None
+        return None
     
     def solve(self):
         """Main solving method"""
@@ -69,8 +69,8 @@ class MazeSolver:
             if result != -1:
                 return f"Empty space found at position {result}"
         
-        # Try hallway walking
-        result = self.walk_hallway()
+        # Try exploring the maze
+        result = self.explore_maze()
         if result:
             return f"Path found with {len(result)} steps: {result}"
         
