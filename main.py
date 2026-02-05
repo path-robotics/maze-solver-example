@@ -31,6 +31,20 @@ def main():
 #########"""
     solver3 = MazeSolver(maze3)
     print(solver3.solve())
+    
+    # Test User Story 4 - winding paths
+    print("\n=== User Story 4 ===")
+    maze4 = """###########
+#S        #
+##### ### #
+#   # #   #
+# # # # ###
+# # #   # #
+# ### # # #
+#     #  E#
+###########"""
+    solver4 = MazeSolver(maze4)
+    print(solver4.solve())
 
 
 if __name__ == "__main__":
