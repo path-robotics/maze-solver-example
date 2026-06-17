@@ -1,52 +1,46 @@
-# Maze Solver
+# Path Robotics Software Interview - Code Review
 
-A simple maze solver that can navigate through various types of mazes, from simple single-row puzzles to complex mazes with rooms, winding paths, and dead ends.
+## Context
 
-## Requirements
+A software engineer's responsibilities have shifted significantly in the era of LLM coding agents. We're spending much more time reviewing code than writing it. Judging software quality is more important than ever!
 
-- Python 3.8+
-- `uv` for dependency management
+This repository is the output of GitHub Copilot circa December 2025. It was given an programming problem we, Path Robotics, used to give candidates. We're asking you, the candidate, to review the code and provide feedback. Specifically, we're asking :arrow_down:
 
-## Installation
+* Pretent this repository is a pull request made by someone you work with
+* It's your job to give constructive feedback to improve the solution
+* Everything is fair game! Consider things like:
+  * Use of data structures
+  * Adherence to software design principles
+  * Flow control
+  * Testing
+* **Important:** There is no "right answer" we're expecting
+  * The goal here is to frame a conversation about software quality, not to find some hidden bug or "gotcha"
 
-This project uses `uv` for managing the Python environment. If you don't have `uv` installed, you can install it following the instructions at [https://github.com/astral-sh/uv](https://github.com/astral-sh/uv).
 
-```bash
-# The project has no external dependencies beyond Python standard library
-uv sync
+## Problem Statement (what we asked the agent)
+
+The agent was asked to write a maze solver that could find a path from a start point (S) to an end point (E) in a 2 dimensional maze. Here's an example :arrow_down:
+
+```
+#########################
+S #   #       #         #
+# ### # # ##### ####### #
+#   #   #           #   #
+### # ############# # # #
+# # # #   #       # # # #
+# # ### # # ##### # # # #
+# #     #   #     # # # #
+# ########### ####### # #
+# #   #     #   #     # #
+# # # # # ##### # ##### #
+#   # # #     #   #     #
+##### # ##### ##### #####
+#     #   #   #   # #   #
+# ### # ### # # # # # # #
+# #   # #   # # #   # # #
+# ##### # ##### ####### #
+#       #               E
+#########################
 ```
 
-## Running the Solution
-
-To run the main demo that shows all user stories:
-
-```bash
-python main.py
-```
-
-To run the tests:
-
-```bash
-python -m pytest test_maze_solver.py -v
-# or
-python -m unittest test_maze_solver.py
-```
-
-## Implementation
-
-The maze solver uses a breadth-first search (BFS) algorithm to explore the maze. It:
-- Parses maze strings into a 2D grid representation
-- Finds start (S) and end (E) positions
-- Explores all reachable cells using a queue
-- Tracks visited positions to avoid loops
-- Returns the shortest path from start to end
-
-## User Stories Completed
-
-1. ✅ Find empty space in single-row input
-2. ✅ Walk through hallway mazes
-3. ✅ Navigate mazes with rooms
-4. ✅ Follow winding paths
-5. ✅ Handle dead ends and find the exit
-
----
+It was given a single constraint: use python. Everything else was left up as a judgement call
