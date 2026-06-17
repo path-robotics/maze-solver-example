@@ -6,15 +6,15 @@ A software engineer's responsibilities have shifted significantly in the era of 
 
 This repository is the output of GitHub Copilot circa December 2025. It was given an programming problem we, Path Robotics, used to give candidates. We're asking you, the candidate, to review the code and provide feedback. Specifically, we're asking :arrow_down:
 
-* Pretent this repository is a pull request made by someone you work with
-* It's your job to give constructive feedback to improve the solution
+* Pretend this repository is a pull request made by someone you work with.
+* It's your job to give constructive feedback to improve the solution.
 * Everything is fair game! Consider things like:
   * Use of data structures
   * Adherence to software design principles
   * Flow control
   * Testing
-* **Important:** There is no "right answer" we're expecting
-  * The goal here is to frame a conversation about software quality, not to find some hidden bug or "gotcha"
+* **Important:** There is no "right answer" we're expecting.
+  * The goal here is to frame a conversation about software quality, not to find some hidden bug or "gotcha".
 
 
 ## Problem Statement (what we asked the agent)
